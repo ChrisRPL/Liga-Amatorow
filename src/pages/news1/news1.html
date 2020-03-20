@@ -1,0 +1,50 @@
+<ion-header text-center>
+  <ion-navbar color="dark" class="naglowek">
+    <img src="assets/imgs/test.png" width="70px" height="70px" style="display: inline-block; margin-right: 55px" />
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="back">
+
+  <ion-refresher style="background-color: #7a3545" slot="fixed" pullMax="60" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pociągnij, aby odświeżyć"
+      refreshingSpinner="circles" refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card style="border-radius: 5px; width: 350px; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+    <ion-card-content>
+      <ion-card-title style="font-size:25px; font-stretch: 3px; text-shadow: 1px 1px gray">
+        {{insetTitle}}
+        <p style="font-size: 15px; font-stretch: 3px; text-shadow: 1px 1px gray">{{insetDate}}</p>
+      </ion-card-title>
+      <img id="postimg{{indexI}}{{indexJ}}" src="" />
+      <p style="margin-top: 10px">
+        {{description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="planet"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="fb()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-fab (click)="tw()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+      <button ion-fab (click)="ig()">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,61 @@
+page-onas {
+
+
+}
+
+.tabela
+{
+	margin-left: auto;
+	margin-right: auto;
+	text-shadow: 2px 1px #ff0000 ;
+	color: white;
+	margin-bottom: 80px;
+	margin-top: 50px;
+	font-size: 10px;
+	text-align: center;
+}
+
+.tabela th
+{
+	background-color: #152026;
+	-webkit-box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.75);
+	border: 3px solid #152026 ;
+}
+ td
+{
+	
+	border: 3px solid #152026 ;
+	
+	border-collapse: collapse;
+	
+	
+}
+
+table
+{
+	-webkit-box-shadow: 0px 0px 52px 21px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 52px 21px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 52px 21px rgba(0,0,0,0.75);
+	
+}
+.tabela td
+{
+	background-color: #7cf238;
+	background-image: url("https://www.transparenttextures.com/patterns/football-no-lines.png");
+}
+
+
+
+.tabela tr > td
+{
+	width: 100px;
+	height: 60px;
+}
+
+.tabela tr > th
+{
+	width: 100px;
+	height: 50px;
+}

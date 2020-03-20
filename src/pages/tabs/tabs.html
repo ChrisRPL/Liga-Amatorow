@@ -1,0 +1,6 @@
+<ion-tabs color="dark">
+  <ion-tab [root]="tab1Root" (ionTabsWillChange)="transition($event)" tabTitle="Aktualności" tabIcon="paper"></ion-tab>
+  <ion-tab [root]="tab2Root" (ionTabsWillChange)="transition($event)" tabTitle="Statystyki" tabIcon="podium"></ion-tab>
+  <ion-tab [root]="tab3Root" (ionTabsWillChange)="transition($event)" tabTitle="Liga" tabIcon="football"></ion-tab>
+  <ion-tab [root]="tab4Root" (ionTabsWillChange)="transition($event)" tabTitle="O nas" tabIcon="contacts"></ion-tab>
+</ion-tabs>

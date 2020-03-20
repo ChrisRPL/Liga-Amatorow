@@ -1,0 +1,98 @@
+<ion-header text-center>
+  <ion-navbar color="dark" class="naglowek">
+    <img src="assets/imgs/test.png" width="70px" height="70px" style="display: inline-block" />
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="back" padding>
+
+  <ion-refresher style="background-color: #7a3545" slot="fixed" pullMax="60" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pociągnij, aby odświeżyć"
+      refreshingSpinner="circles" refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div
+    style="background-color: #152026; -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75); width: 320px;  margin-left: auto; margin-right: auto;  border-radius: 4px">
+    <h2
+      style="text-shadow: 2px 2px grey; color: white; margin-top: 20px; margin-bottom: 20px; font-size: 25px; font-stretch: 3px;  "
+      text-center class="title1">STATYSTKI {{seasonNumber}} SEZONU LA</h2>
+  </div>
+
+  <ion-card (click)="tabela()" style="width: 320px; height: 170px; border-radius: 4px; position: relative;
+    text-align: center; filter: brightness(40%); margin-right: auto; margin-left: auto;">
+    <img src="assets/imgs/tabela1.jpg" />
+    <div style="position: absolute;
+    top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;">Tabela ligowa</div>
+    <div style="font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff; margin-top: 8px">{{seasonYear}}</div>
+  </ion-card>
+
+  <ion-card (click)="termin()"
+    style="width: 320px; height: 170px; position: relative;
+    text-align: center;  border-radius: 4px; filter: brightness(40%); margin-bottom: 10px; margin-top: 10px; margin-left: auto; margin-right: auto;">
+    <img src="assets/imgs/terminarz.jpg" />
+    <div style="position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;">Terminarz rozgrywek</div>
+    <div style="font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff; margin-top: 8px">{{seasonYear}}</div>
+  </ion-card>
+
+  <ion-card (click)="strzel()" style="width: 320px; margin-bottom: 10px; margin-top: 10px; height: 170px; border-radius: 4px; position: relative;
+    text-align: center; filter: brightness(40%); margin-right: auto; margin-left: auto;">
+    <img src="assets/imgs/strzel1.jpg" />
+    <div style="position: absolute;
+    top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;">Klasyfikacja strzelców</div>
+    <div style="font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff; margin-top: 8px">{{seasonYear}}</div>
+  </ion-card>
+
+  <ion-card (click)="asyst()" style="width: 320px; margin-bottom: 10px; margin-top: 10px; height: 170px; border-radius: 4px; position: relative;
+    text-align: center; filter: brightness(40%); margin-right: auto; margin-left: auto;">
+    <img src="assets/imgs/asyst.jpg" />
+    <div style="position: absolute;
+    top: 36%; font-size: 1.8em; width: 100%; font-weight: bold; color: #fff;">Klasyfikacja asystentów</div>
+    <div style="font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff; margin-top: 8px">{{seasonYear}}</div>
+  </ion-card>
+
+
+
+
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="planet"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="fb()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-fab (click)="tw()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+      <button ion-fab (click)="ig()">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

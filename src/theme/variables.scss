@@ -36,9 +36,9 @@ $app-direction: ltr;
 $colors: (
   primary:    #488aff,
   secondary:  #32db64,
-  danger:     #f53d3d,
+  danger:     #ad3852,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #152026
 );
 
 
@@ -84,5 +84,22 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+ // @import "roboto";
+// @import "noto-sans";
+
+@font-face{
+	
+	font-family: 'Lato';
+	font-style: normal;
+	font-weight: 400;
+	src: url(".../assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-family-base: "Lato";
+body
+{
+	font-family: "Lato" !important;
+	font-weight: 400 !important;
+}
+
+

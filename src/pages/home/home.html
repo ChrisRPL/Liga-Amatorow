@@ -1,14 +1,185 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<ion-header text-center>
+  <ion-navbar color="dark" class="naglowek">
+    <img src="assets/imgs/test.png" width="70px" height="70px" style="display: inline-block" />
+
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+
+<ion-content class="back" scrollbar-y-auto>
+
+  <ion-refresher close-duration="1000ms" pull-max="500" snapback-duration="1000ms" slot="fixed"
+    (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pociągnij, aby odświeżyć"
+      refreshingSpinner="circles" refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+
+  <div
+    style="background-color: #152026; -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75); width: 250px; margin-left: auto;  margin-right: auto;  border-radius: 4px"
+    sticky>
+    <h2
+      style="text-shadow: 2px 2px grey;  color: white; margin-top: 20px; margin-bottom: 20px; font-size: 25px; font-stretch: 3px;  "
+      text-center class="title1">AKTUALNOŚCI</h2>
+  </div>
+
+  <table class="terminarz" style="-webkit-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75); margin-top: 10px; margin-bottom: 20px;">
+    <tr>
+      <th colspan="4" style="font-size: 15px">Królowie klasyfikacji</th>
+
+    </tr>
+    <tr>
+      <td style="font-size: 13px" colspan="4">{{topScorer}}: <ion-icon name="football"></ion-icon> {{topGoals}}
+        bramek</td>
+
+    </tr>
+    <tr>
+      <td style="font-size: 13px" colspan="4">{{topAssisstant}}: <ion-icon name="eye"></ion-icon> {{topAssists}} asyst
+      </td>
+
+    </tr>
+
+  </table>
+  <table class="terminarz" style="-webkit-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75); margin-top: 10px; margin-bottom: 20px;">
+    <tr>
+      <th colspan="4" style="font-size: 15px">Najbliższe spotkania</th>
+
+    </tr>
+    <tr>
+      <th colspan="4">Niedziela, 10 marca 2019</th>
+
+    </tr>
+    <tr *ngFor="let match of incomingMatches">
+      <td>{{match.place_time}}</td>
+      <td>{{match.team1}} vs. {{match.team2}}</td>
+    </tr>
+
+
+  </table>
+
+
+  <div *ngFor="let post of postsTab; let i=index;">
+    <div
+      style="background-color: #152026; -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75); width: 290px; margin-left: auto;  margin-right: auto;  border-radius: 4px"
+      sticky>
+      <h2
+        style="text-shadow: 2px 2px grey;  color: white; margin-top: 20px; margin-bottom: 20px; font-size: 25px; font-stretch: 3px;  "
+        text-center class="title1">
+        {{post.date}}
+      </h2>
+    </div>
+
+    <ion-card *ngFor="let postExtracted of extractedPosts[i]; let j=index;" (click)="news1($event, postExtracted, i, j)"
+      style="border-radius: 5px; -webkit-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75); width: 250px; margin-bottom: 20px; height: auto; margin-left: auto; margin-right: auto">
+      <img id="myimg{{i}}{{j}}" src="" />
+      <ion-card-content>
+        <ion-card-title style="font-size:20px">
+          {{postExtracted.title}}
+        </ion-card-title>
+        <p>
+          {{postExtracted.subtitle}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+  <div
+    style="background-color: #152026; -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75); width: 290px; margin-left: auto;  margin-right: auto;  border-radius: 4px"
+    sticky>
+    <h2
+      style="text-shadow: 2px 2px grey;  color: white; margin-top: 20px; margin-bottom: 20px; font-size: 25px; font-stretch: 3px;  "
+      text-center class="title1">
+      #LAInfo
+    </h2>
+  </div>
+
+  <ion-card *ngFor="let info of infosTab; let i=index;" (click)="newsLoad($event, info, i)"
+    style="border-radius: 5px; -webkit-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75);
+box-shadow: -1px -1px 27px 3px rgba(0,0,0,0.75); width: 250px; margin-bottom: 20px; height: auto; margin-left: auto; margin-right: auto">
+    <img id="info{{i}}" src="" />
+    <ion-card-content>
+      <ion-card-title style="font-size:20px">
+        {{info.title}}
+      </ion-card-title>
+      <p>
+        {{info.subtitle}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <div
+    style="background-color: #152026; -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75); width: 290px; margin-left: auto;  margin-right: auto;  border-radius: 4px"
+    sticky>
+    <h2
+      style="text-shadow: 2px 2px grey;  color: white; margin-top: 20px; margin-bottom: 20px; font-size: 25px; font-stretch: 3px;  "
+      text-center class="title1">
+      <ion-icon name="easel"></ion-icon> #LigaAmatorówTV <ion-icon name="easel"></ion-icon>
+    </h2>
+  </div>
+
+  <div *ngIf="videosTab && videosTab.length">
+    <div *ngFor="let video of videosTab">
+      <div
+        style="background-color: #152026; -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75); width: 290px; margin-left: auto;  margin-right: auto;  border-radius: 4px"
+        sticky>
+        <h2
+          style="text-shadow: 2px 2px grey;  color: white; margin-top: 20px; margin-bottom: 20px; font-size: 25px; font-stretch: 3px;  "
+          text-center class="title1">
+          <ion-icon name="easel"></ion-icon> {{video.date}} <ion-icon name="easel"></ion-icon>
+        </h2>
+      </div>
+
+      <div style="margin-left:auto; margin-right:auto; background-color: white; width: 250px; margin-bottom: 30px">
+        <div class="fb-video" attr.data-href={{video.href1}} data-width="250" data-show-text="true"
+          data-allowfullscreen="true" data-autoplay="true" data-show-captions="true">
+          <blockquote attr.cite={{video.href2}} class="fb-xfbml-parse-ignore"><a
+              href={{video.href2}}>{{video.title}}</a>
+            <p>{{video.description}}</p>Opublikowany
+            przez <a href="https://www.facebook.com/liga.amatorow/">Liga Amatorów</a> {{video.insetDate}}
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="planet"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="fb()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-fab (click)="tw()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+      <button ion-fab (click)="ig()">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
 </ion-content>

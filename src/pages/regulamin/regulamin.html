@@ -1,0 +1,92 @@
+<ion-header text-center>
+  <ion-navbar color="dark" class="naglowek">
+    <img src="assets/imgs/test.png" width="70px" height="70px" style="display: inline-block; margin-right: 55px" />
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="back">
+
+  <ion-refresher style="background-color: #7a3545" slot="fixed" pullMax="60" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pociągnij, aby odświeżyć"
+      refreshingSpinner="circles" refreshingText="Odświeżanie...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card style="border-radius: 5px; width: 350px; margin-left: auto; margin-right: auto; margin-bottom: 20px;">
+    <ion-card-content>
+      <ion-card-title style="font-size:25px; font-stretch: 3px; text-shadow: 1px 1px gray">
+        REGULAMIN ROZGRYWEK LIGI AMATORÓW
+      </ion-card-title>
+      <p style="margin-top: 10px">
+        1. Organizatorami rozgrywek jest Łukasz Dębowski i Filip Miękus.<br>
+        2. Celem rozgrywek jest popularyzacja piłki nożnej na terenie powiatu wołomińskiego oraz
+        wyłonienie najlepszej drużyny, której zostanie przyznany tytuł mistrza rozgrywek Ligi
+        Amatorów.
+        <br>
+        3. Rozgrywki Ligi Amatorów prowadzone są na podstawie niniejszego regulaminu i przepisów
+        gry w piłkę nożną.<br>
+        4. Zgłoszenie zespołu do rozgrywek następuje poprzez dokonanie wpłaty wpisowego i
+        zgłoszenia listy zawodników. Wpłata wpisowego jest jednoznaczna z deklaracją przestrzegania
+        regulaminu i zasad gry w Lidze Amatorów przez wszystkich członków zgłoszonych drużyn.<br>
+        5. Nie można zgłaszać zawodników po wyznaczonym przez organizatorów terminie.<br>
+        6. Drużyna może liczyć maksymalnie 12 zawodników.<br>
+        7. W rozgrywkach mogą brać udział zawodnicy nie mający przeciwwskazań zdrowotnych.<br>
+        8. W rozgrywkach nie mogą brać udziału zawodnicy, którzy nie ukończyli 14 roku życia.<br>
+        9. Każdy zespół w terminie wyznaczonym przez organizatorów jest zobowiązany do wpłaty
+        ustalonej kwoty wpisowego, dostarczenia listy zawodników wraz z wymaganymi danymi.<br>
+        10. Zespoły występują na boisku w sześcioosobowych składach (bramkarz + pięciu zawodników w
+        polu).<br>
+        11. Rozgrywki nie prowadzi sędzia.<br>
+        12. Wszyscy zawodnicy zapisani do drużyn zobowiązani są do zapłacenia składek ligowych w
+        wysokości 10 zł od zawodnika za cały sezon do dniu rozpoczęcia sezonu.<br>
+        13. Zawodnicy, którzy nie zapłacili składek ligowych nie mogą grać. W przeciwnym razie
+        drużyna może dostać walkower.<br>
+        14. W drużynach nie mogą grać zawodnicy zarejestrowani w klubach piłkarskich. W
+        przeciwnym razie drużyna może dostać walkower.<br>
+        15. W lidze nie mogą grać osoby, których okres niegrania w klubie jest krótszy niż 3 lata.
+        Punkt 14 oraz 15 nie dotyczy drużyny WKS Wybrzeże Klatki Schodowej oraz Krzysztofa Kacperskiego.<br>
+        <ion-card-title style="font-size:25px; font-stretch: 3px; text-shadow: 1px 1px gray">
+          POSTANOWIENIA KOŃCOWE
+        </ion-card-title>
+        1. Organizator turnieju nie zapewnia pierwszej pomocy medycznej przy urazach zagrażających
+        życiu zawodnikowi powstałych w trakcie meczów. Organizator nie ponosi odpowiedzialności
+        za udział w turnieju osób chorych i wynikających z tego wypadków i urazów. Zaleca się, aby
+        zawodnicy biorący udział w turnieju przeszli przez badania lekarskie. Organizator nie ponosi
+        odpowiedzialności za rzeczy pozostawione w szatni. <br>
+        2. Drużyny i zawodnicy występujący w rozgrywkach są zobowiązani do bezwzględnego
+        przestrzegania, komunikatów, terminów i rozporządzenia Zarządu Ligi. W przeciwnym razie
+        drużyna/zawodnik może zostać nie dopuszczona/y lub wykluczona/y z rozgrywek i ukarana/y
+        finansowo. <br>
+        3. Do interpretacji niniejszego regulaminu uprawniony jest jedynie organizator.<br>
+        4. Organizator zastrzega sobie prawo do możliwości zmiany regulaminu.<br>
+        5. Wszystko czego nie przewiduje niniejszy Regulamin rozstrzyga Zarząd Ligi Amatorów.
+        Wszystkim zawodnikom Ligi Amatorów życzymy pełnej realizacji zamierzeń i osiągnięcia
+        zadowalających wyników oraz wzajemnego poszanowania podczas gry w nasz ulubiony sport,
+        jakim niewątpliwie jest piłka nożna.<br>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      <ion-icon name="planet"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="fb()">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-fab (click)="tw()">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+      <button ion-fab (click)="ig()">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+
+
+
+</ion-content>
