@@ -93,7 +93,7 @@ export class HomePage {
       let index = 0
 
       for (let item of this.schedules) {
-        if (index == this.schedules.length - 1) {
+        if (index == 0) {
           const values = Object.keys(item.matches).map(key => item.matches[key]);
           this.incomingMatches = values
           this.incomingDate = item.date
