@@ -56,17 +56,6 @@ export class HomePage {
     this.topAssists = 0
     this.topGoals = 0
 
-
-    this.network.onConnect().subscribe((data) => {
-      console.log(data)
-      this.displayNetworkUpdate(data.type);
-    }, error => console.log(error));
-
-    this.network.onDisconnect().subscribe(() => {
-      this.displayNetworkUpdate("");
-    }, error => console.log(error));
-
-
     this.assistants.on("value", resp => {
       this.assistantsTab = snapshotToArray(resp)
       this.assistantsTab.forEach(element => {
@@ -155,14 +144,18 @@ export class HomePage {
     })
   }
 
+  ionViewDidEnter() {
+    this.network.onConnect().subscribe((data) => {
+      this.displayNetworkUpdate(data.type);
+    }, error => console.log(error));
 
-
-
+    this.network.onDisconnect().subscribe((data) => {
+      this.displayNetworkUpdate(data);
+    }, error => console.log(error));
+  }
 
 
   displayNetworkUpdate(connectionState: string) {
-
-
     this.toast.create({
       message: "Twój status sieci: " + connectionState.toUpperCase(),
       duration: 3000,
@@ -199,7 +192,6 @@ export class HomePage {
   }
 
   news1(event, item, i, j) {
-
     this.navCtrl.push(News1Page,
       {
         item: item,
@@ -207,8 +199,6 @@ export class HomePage {
         j: j
       })
   }
-
-
 
   share(socialNet: string, fab) {
     fab.close();
